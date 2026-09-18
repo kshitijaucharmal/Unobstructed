@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ugixhveyoh4d"]
+
+[ext_resource type="Texture2D" uid="uid://b2rv2u6kol7fp" path="res://DownloadedAssets/kenney_prototype-textures/Vector/texture_01.svg" id="1_skm80"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_skm80")
+uv1_scale = Vector3(5, 5, 5)
