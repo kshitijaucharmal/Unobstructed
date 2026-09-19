@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bwq6s5qc286bp"]
+
+[ext_resource type="Script" uid="uid://c068hfoji1uuq" path="res://Scripts/dissapear.gd" id="1_cawyy"]
+[ext_resource type="Material" uid="uid://cq034b5qnj4qw" path="res://Materials/enemy_mat.tres" id="1_fedit"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tqiex"]
+material = ExtResource("1_fedit")
+radius = 0.04
+height = 0.08
+radial_segments = 4
+rings = 4
+
+[node name="BulletDecal" type="Node3D" unique_id=1157864892 node_paths=PackedStringArray("mesh_instance_3d")]
+script = ExtResource("1_cawyy")
+mesh_instance_3d = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=838497792]
+mesh = SubResource("SphereMesh_tqiex")

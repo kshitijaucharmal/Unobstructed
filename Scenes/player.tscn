@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://df7ksxrcamixk"]
 
 [ext_resource type="Script" uid="uid://b0lkx2fa73ju6" path="res://Scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://y5d23a3gilh" path="res://Scripts/shoot_manager.gd" id="2_fkybt"]
 [ext_resource type="Material" uid="uid://dxe18pd4bmeoy" path="res://Materials/player_mat.tres" id="2_vgqql"]
 [ext_resource type="Material" uid="uid://mj1xm85kjs6c" path="res://Materials/goggles_mat.tres" id="3_fkybt"]
+[ext_resource type="PackedScene" uid="uid://bwq6s5qc286bp" path="res://Scenes/bullet_decal.tscn" id="3_x3wgy"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_q2fht"]
 material = ExtResource("2_vgqql")
@@ -20,21 +22,31 @@ camera = NodePath("Camera3D")
 head_bob_amplitude = 0.4
 metadata/_edit_group_ = true
 
+[node name="ShootManager" type="Node3D" parent="." unique_id=621129879 node_paths=PackedStringArray("ray_cast_3d", "player_controller")]
+script = ExtResource("2_fkybt")
+ray_cast_3d = NodePath("../Camera3D/RayCast3D")
+bullet_decal = ExtResource("3_x3wgy")
+player_controller = NodePath("..")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1204288154]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0)
 layers = 128
 material_override = ExtResource("2_vgqql")
 mesh = SubResource("CylinderMesh_q2fht")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1054262252]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_q2fht")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1451978549]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7563252, 0.46066976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6563253, -0.23933023)
 cull_mask = 1048447
+fov = 60.0
 
 [node name="Googgles" type="MeshInstance3D" parent="Camera3D" unique_id=2070718664]
 transform = Transform3D(1, 0, 0, 0, 0.258457, 0, 0, 0, 1.3742328, 0, 0.45718193, 0.17408061)
 material_override = ExtResource("3_fkybt")
 mesh = SubResource("BoxMesh_q2fht")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1725070692]
+target_position = Vector3(0, 0, -100)
