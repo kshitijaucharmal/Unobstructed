@@ -3,3 +3,5 @@
 [resource]
 shading_mode = 0
 albedo_color = Color(0.13501206, 0.13501206, 0.13501206, 1)
+use_z_clip_scale = true
+z_clip_scale = 0.5

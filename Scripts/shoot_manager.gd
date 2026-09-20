@@ -2,8 +2,8 @@ extends Node3D
 
 @export var ray_cast_3d: RayCast3D
 @export var bullet_decal: PackedScene
-@export var scatter_factor := 0.5
-@export var scatter_base := 0.5
+@export var scatter_factor := 0.3
+@export var scatter_base := 0.8
 @export var raycast_target_base:= Vector3(0, 0, -100.0)
 @export var shoot_rate := 25
 @export var player_controller: Player

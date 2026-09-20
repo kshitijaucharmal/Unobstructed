@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://qnfplgndgr4k"]
+
+[ext_resource type="Texture2D" uid="uid://c42eofhw87bqm" path="res://Images/pallete.jpeg" id="1_d16f8"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_d16f8")
+use_z_clip_scale = true
+z_clip_scale = 0.43

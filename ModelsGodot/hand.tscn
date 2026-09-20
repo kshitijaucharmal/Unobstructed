@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c32xxytpv6utp"]
+
+[ext_resource type="PackedScene" uid="uid://cnsakwyxgtj7y" path="res://Models/hand.blend" id="1_0pmcf"]
+[ext_resource type="Material" uid="uid://qnfplgndgr4k" path="res://Materials/ModelMaterials/hand_mat.tres" id="2_5ygbv"]
+
+[node name="hand" unique_id=1111347626 instance=ExtResource("1_0pmcf")]
+
+[node name="Armature" parent="." index="0" unique_id=1186953453]
+transform = Transform3D(-1.1313341e-08, -4.222196e-08, 1, -0.9659258, 0.25881907, 0, -0.25881907, -0.9659258, -4.371139e-08, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1499067316]
+bones/1/rotation = Quaternion(-0.28530335, 0.647041, 0.22155093, 0.67145747)
+bones/3/rotation = Quaternion(-0.36431104, 0.63762665, 0.30074027, 0.60849404)
+bones/6/rotation = Quaternion(-0.3216573, 0.6478839, 0.32801604, 0.60760885)
+bones/9/rotation = Quaternion(-0.16663852, 0.69715315, 0.2620589, 0.646169)
+
+[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=177447026]
+surface_material_override/0 = ExtResource("2_5ygbv")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=727464729]
+autoplay = &"Tictok"

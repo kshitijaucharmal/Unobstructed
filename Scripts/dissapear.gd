@@ -15,7 +15,6 @@ func _ready() -> void:
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		mesh_instance_3d.material_override = mat
 
-
 func _process(delta: float) -> void:
 	if not mat or time_to_dissapear <= 0.0:
 		return

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dhwmvy268k1ln"]
+
+[ext_resource type="Script" uid="uid://y5d23a3gilh" path="res://Scripts/shoot_manager.gd" id="1_fh3gh"]
+[ext_resource type="PackedScene" uid="uid://bwq6s5qc286bp" path="res://Scenes/bullet_decal.tscn" id="2_4irqh"]
+
+[node name="ShootManager" type="Node3D" unique_id=44988085 node_paths=PackedStringArray("ray_cast_3d", "player_controller")]
+script = ExtResource("1_fh3gh")
+ray_cast_3d = NodePath("")
+bullet_decal = ExtResource("2_4irqh")
+player_controller = NodePath("")
