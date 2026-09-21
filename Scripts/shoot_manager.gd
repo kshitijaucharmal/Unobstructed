@@ -52,3 +52,6 @@ func shoot() -> void:
 		var new_bullet: Node3D = bullet_decal.instantiate()
 		get_tree().root.add_child(new_bullet)
 		new_bullet.position = collision_point
+		
+	ray_cast_3d.target_position = raycast_target_base
+	ray_cast_3d.force_raycast_update()

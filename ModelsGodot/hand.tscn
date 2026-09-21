@@ -5,17 +5,14 @@
 
 [node name="hand" unique_id=1111347626 instance=ExtResource("1_0pmcf")]
 
-[node name="Armature" parent="." index="0" unique_id=1186953453]
+[node name="Armature" parent="." index="0" unique_id=2116129629]
 transform = Transform3D(-1.1313341e-08, -4.222196e-08, 1, -0.9659258, 0.25881907, 0, -0.25881907, -0.9659258, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Armature" index="0" unique_id=1499067316]
-bones/1/rotation = Quaternion(-0.28530335, 0.647041, 0.22155093, 0.67145747)
-bones/3/rotation = Quaternion(-0.36431104, 0.63762665, 0.30074027, 0.60849404)
-bones/6/rotation = Quaternion(-0.3216573, 0.6478839, 0.32801604, 0.60760885)
-bones/9/rotation = Quaternion(-0.16663852, 0.69715315, 0.2620589, 0.646169)
+[node name="Skeleton3D" parent="Armature" index="0" unique_id=1431646617]
+bones/1/rotation = Quaternion(-0.15383163, 0.6973894, 0.027875472, 0.6994332)
+bones/3/rotation = Quaternion(-0.16758515, 0.69897014, 0.079891294, 0.6906326)
+bones/6/rotation = Quaternion(-0.13799584, 0.70472324, 0.11194236, 0.68687063)
+bones/9/rotation = Quaternion(-0.07555769, 0.7159199, 0.127421, 0.6822856)
 
-[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=177447026]
+[node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=1048086587]
 surface_material_override/0 = ExtResource("2_5ygbv")
-
-[node name="AnimationPlayer" parent="." index="1" unique_id=727464729]
-autoplay = &"Tictok"

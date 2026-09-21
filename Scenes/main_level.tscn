@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://df7ksxrcamixk" path="res://Scenes/player.tscn" id="3_5erdv"]
 [ext_resource type="Material" uid="uid://ugixhveyoh4d" path="res://Materials/Block1.tres" id="4_qbrl8"]
 [ext_resource type="Material" uid="uid://ddbepicid5jm4" path="res://Materials/Block2.tres" id="5_a2ia3"]
-[ext_resource type="Material" uid="uid://cq034b5qnj4qw" path="res://Materials/enemy_mat.tres" id="7_lwkuy"]
+[ext_resource type="PackedScene" uid="uid://bptopeenlikb" path="res://Scenes/enemy_soldier.tscn" id="7_tqiex"]
 [ext_resource type="Script" uid="uid://wxdo5dcj4mp" path="res://Scripts/reticle.gd" id="8_tqiex"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5erdv"]
@@ -32,15 +32,6 @@ fog_depth_end = 40.0
 material = ExtResource("1_q2fht")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ikcpc"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_236hc"]
-material = ExtResource("7_lwkuy")
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_236hc"]
-height = 4.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_236hc"]
-material = ExtResource("7_lwkuy")
 
 [node name="MainLevel" type="Node3D" unique_id=1268535449]
 script = ExtResource("1_5erdv")
@@ -97,21 +88,6 @@ shape = SubResource("WorldBoundaryShape3D_ikcpc")
 [node name="Player" parent="." unique_id=203929966 instance=ExtResource("3_5erdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7252903e-08, 0)
 
-[node name="EnemySoldier" type="StaticBody3D" parent="." unique_id=542827679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemySoldier" unique_id=540019200]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0)
-mesh = SubResource("CylinderMesh_236hc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemySoldier" unique_id=1459251721]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("CylinderShape3D_236hc")
-
-[node name="Goggles" type="MeshInstance3D" parent="EnemySoldier" unique_id=2009702091]
-transform = Transform3D(1, 0, 0, 0, 0.33000004, 0, 0, 0, 1, 0, 3.9, 0.5)
-mesh = SubResource("BoxMesh_236hc")
-
 [node name="UserInterface" type="Control" parent="." unique_id=84762922]
 layout_mode = 3
 anchors_preset = 15
@@ -151,3 +127,12 @@ width = 2.0
 [node name="Left" type="Line2D" parent="UserInterface/Reticle" unique_id=279969986]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
+
+[node name="EnemySoldier" parent="." unique_id=2132596890 instance=ExtResource("7_tqiex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4)
+
+[node name="EnemySoldier2" parent="." unique_id=183185681 instance=ExtResource("7_tqiex")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, -5.9, 0, -13.700001)
+
+[node name="EnemySoldier3" parent="." unique_id=1023048398 instance=ExtResource("7_tqiex")]
+transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 12.6, 0, -5.6000004)

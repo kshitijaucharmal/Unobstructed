@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://df7ksxrcamixk"]
 
 [ext_resource type="Script" uid="uid://b0lkx2fa73ju6" path="res://Scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Script" uid="uid://dnqfa6mxop3ev" path="res://Scripts/body_swap_mechanic.gd" id="2_3smsa"]
 [ext_resource type="PackedScene" uid="uid://dhwmvy268k1ln" path="res://Scenes/Components/ShootComponent.tscn" id="2_fkybt"]
 [ext_resource type="Material" uid="uid://dxe18pd4bmeoy" path="res://Materials/player_mat.tres" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://cmxnsh1k3ncs0" path="res://Scripts/Components/headbob_component.gd" id="2_x3wgy"]
@@ -22,6 +23,11 @@ jump_velocity = 20.0
 camera = NodePath("Camera3D")
 headbobComponent = NodePath("HeadbobComponent_Camera")
 metadata/_edit_group_ = true
+
+[node name="BodySwapMechanic" type="Node3D" parent="." unique_id=676810554 node_paths=PackedStringArray("ray_cast_3d", "player_transform")]
+script = ExtResource("2_3smsa")
+ray_cast_3d = NodePath("../Camera3D/RayCast3D")
+player_transform = NodePath("..")
 
 [node name="HeadbobComponent_Camera" type="Node3D" parent="." unique_id=355525405 node_paths=PackedStringArray("target")]
 script = ExtResource("2_x3wgy")

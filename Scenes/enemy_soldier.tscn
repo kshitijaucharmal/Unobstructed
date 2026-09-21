@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bptopeenlikb"]
+
+[ext_resource type="Material" uid="uid://cq034b5qnj4qw" path="res://Materials/enemy_mat.tres" id="1_o6oqa"]
+[ext_resource type="Script" uid="uid://nbs72u0jktbf" path="res://Scripts/Components/swappable_component.gd" id="2_2pewb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_236hc"]
+material = ExtResource("1_o6oqa")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_236hc"]
+height = 4.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_236hc"]
+material = ExtResource("1_o6oqa")
+
+[node name="EnemySoldier" type="StaticBody3D" unique_id=2132596890 groups=["Swappable"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1772770432]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("CylinderMesh_236hc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=945333950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_236hc")
+
+[node name="Goggles" type="MeshInstance3D" parent="." unique_id=671221041]
+transform = Transform3D(1, 0, 0, 0, 0.33000004, 0, 0, 0, 1, 0, 3.9, 0.5)
+mesh = SubResource("BoxMesh_236hc")
+
+[node name="SwappableComponent" type="Node3D" parent="." unique_id=681276239]
+script = ExtResource("2_2pewb")
