@@ -8,6 +8,8 @@
 [ext_resource type="Material" uid="uid://ddbepicid5jm4" path="res://Materials/Block2.tres" id="5_a2ia3"]
 [ext_resource type="PackedScene" uid="uid://bptopeenlikb" path="res://Scenes/enemy_soldier.tscn" id="7_tqiex"]
 [ext_resource type="Script" uid="uid://wxdo5dcj4mp" path="res://Scripts/reticle.gd" id="8_tqiex"]
+[ext_resource type="PackedScene" uid="uid://kjbb87t4dsxc" path="res://Scenes/PS1_Post_Processing.tscn" id="9_ha3dl"]
+[ext_resource type="PackedScene" uid="uid://flr4sruugrrm" path="res://ModelsGodot/Car.tscn" id="10_f3gli"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5erdv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,6 +29,8 @@ fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 fog_depth_begin = 0.0
 fog_depth_end = 40.0
+volumetric_fog_density = 0.0088
+volumetric_fog_albedo = Color(0.50140655, 0.5014065, 0.5014065, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tv1p5"]
 material = ExtResource("1_q2fht")
@@ -71,7 +75,7 @@ environment = SubResource("Environment_a2ia3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1676174008]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
+light_specular = 0.0
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1393620745]
 
@@ -87,6 +91,7 @@ shape = SubResource("WorldBoundaryShape3D_ikcpc")
 
 [node name="Player" parent="." unique_id=203929966 instance=ExtResource("3_5erdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7252903e-08, 0)
+speed = 8.0
 
 [node name="UserInterface" type="Control" parent="." unique_id=84762922]
 layout_mode = 3
@@ -136,3 +141,8 @@ transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25
 
 [node name="EnemySoldier3" parent="." unique_id=1023048398 instance=ExtResource("7_tqiex")]
 transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 12.6, 0, -5.6000004)
+
+[node name="ScreenQuad" parent="." unique_id=1567483584 instance=ExtResource("9_ha3dl")]
+
+[node name="BasicCar" parent="." unique_id=1772947355 instance=ExtResource("10_f3gli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1, 0, -12.099999)

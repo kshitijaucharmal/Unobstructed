@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://kjbb87t4dsxc"]
+
+[ext_resource type="Shader" uid="uid://cu4jny07hohos" path="res://Shaders/ps1_post_process.gdshader" id="1_4rj0b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqiex"]
+render_priority = 0
+shader = ExtResource("1_4rj0b")
+shader_parameter/dither_amount = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_tqiex"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="ScreenQuad" type="MeshInstance3D" unique_id=1567483584]
+material_override = SubResource("ShaderMaterial_tqiex")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_tqiex")

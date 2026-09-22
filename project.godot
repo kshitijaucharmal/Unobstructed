@@ -18,8 +18,10 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
+window/size/viewport_height=1200
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
@@ -99,3 +101,16 @@ throw={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+shading/overrides/force_vertex_shading=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+
+[shader_globals]
+
+resolution={
+"type": "vec2",
+"value": Vector2(320, 240)
+}
+color_depth={
+"type": "float",
+"value": 32.0
+}

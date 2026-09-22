@@ -1,7 +1,19 @@
 [gd_scene format=3 uid="uid://c32xxytpv6utp"]
 
 [ext_resource type="PackedScene" uid="uid://cnsakwyxgtj7y" path="res://Models/hand.blend" id="1_0pmcf"]
-[ext_resource type="Material" uid="uid://qnfplgndgr4k" path="res://Materials/ModelMaterials/hand_mat.tres" id="2_5ygbv"]
+[ext_resource type="Shader" uid="uid://cfydcjgkluhrb" path="res://Shaders/default_object.gdshader" id="2_gnjwr"]
+[ext_resource type="Texture2D" uid="uid://c42eofhw87bqm" path="res://Images/pallete.jpeg" id="3_gnjwr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnjwr"]
+render_priority = 0
+shader = ExtResource("2_gnjwr")
+shader_parameter/color_texture = ExtResource("3_gnjwr")
+shader_parameter/vertex_wobble = 0.499999988824
+shader_parameter/affine_mapping = 0.499999988824
+shader_parameter/z_clip_scale = 0.6
+shader_parameter/alpha = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnjwr"]
 
 [node name="hand" unique_id=1111347626 instance=ExtResource("1_0pmcf")]
 
@@ -15,4 +27,6 @@ bones/6/rotation = Quaternion(-0.13799584, 0.70472324, 0.11194236, 0.68687063)
 bones/9/rotation = Quaternion(-0.07555769, 0.7159199, 0.127421, 0.6822856)
 
 [node name="Cube" parent="Armature/Skeleton3D" index="0" unique_id=1048086587]
-surface_material_override/0 = ExtResource("2_5ygbv")
+material_override = SubResource("ShaderMaterial_gnjwr")
+cast_shadow = 0
+surface_material_override/0 = SubResource("StandardMaterial3D_gnjwr")
