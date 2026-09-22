@@ -1,9 +1,18 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://e7gh1rnwev5v"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uw4f3"]
-load_path = "res://.godot/imported/texture_13.png-b2c34e9671be9c5dd3ae23e82af793c7.s3tc.ctex"
+[sub_resource type="Gradient" id="Gradient_uw4f3"]
+offsets = PackedFloat32Array(0, 0.9976798)
+colors = PackedColorArray(0.2660214, 0.13925621, 0.10211278, 1, 0.74198735, 0.5733618, 0.30926737, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yv2xo"]
+frequency = 0.0051
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uw4f3"]
+noise = SubResource("FastNoiseLite_yv2xo")
+color_ramp = SubResource("Gradient_uw4f3")
+seamless = true
 
 [resource]
 shading_mode = 0
-albedo_texture = SubResource("CompressedTexture2D_uw4f3")
+albedo_texture = SubResource("NoiseTexture2D_uw4f3")
 uv1_scale = Vector3(10, 10, 10)

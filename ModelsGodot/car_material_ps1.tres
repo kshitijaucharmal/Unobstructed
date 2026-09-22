@@ -9,5 +9,5 @@ shader = ExtResource("1_28oda")
 shader_parameter/color_texture = ExtResource("2_7pepa")
 shader_parameter/vertex_wobble = 0.499999988824
 shader_parameter/affine_mapping = 0.499999988824
-shader_parameter/z_clip_scale = 0.6499999854712
+shader_parameter/z_clip_scale = 0.999999977648
 shader_parameter/alpha = 1.0

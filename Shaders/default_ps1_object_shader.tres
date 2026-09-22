@@ -10,7 +10,7 @@ uniform float vertex_wobble: hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float affine_mapping: hint_range(0.0, 1.0, 0.01) = 0.5;
 varying vec2 original_uv;
 
-uniform float z_clip_scale: hint_range(0.0, 1.0, 0.01) = 0.6;
+uniform float z_clip_scale: hint_range(0.0, 1.0, 0.01) = 1.0;
 uniform float alpha: hint_range(0.0, 1.0, 0.01) = 1.0;
 
 // 4x4 Bayer matrix for screen-door transparency
@@ -51,9 +51,21 @@ void fragment() {
 //}
 "
 
+[sub_resource type="Gradient" id="Gradient_cthir"]
+colors = PackedColorArray(0.25021365, 0.10496055, 0.33712742, 1, 0.84606516, 0.56518894, 0.9307314, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cthir"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cthir"]
+noise = SubResource("FastNoiseLite_cthir")
+color_ramp = SubResource("Gradient_cthir")
+seamless = true
+
 [resource]
 render_priority = 0
 shader = SubResource("Shader_cthir")
+shader_parameter/color_texture = SubResource("NoiseTexture2D_cthir")
 shader_parameter/vertex_wobble = 0.499999988824
 shader_parameter/affine_mapping = 0.499999988824
 shader_parameter/z_clip_scale = 0.999999977648
