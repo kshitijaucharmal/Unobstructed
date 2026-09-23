@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://cfydcjgkluhrb" path="res://Shaders/default_object.gdshader" id="1_4i38d"]
 [ext_resource type="Material" uid="uid://cq034b5qnj4qw" path="res://Materials/enemy_mat.tres" id="1_o6oqa"]
 [ext_resource type="Script" uid="uid://nbs72u0jktbf" path="res://Scripts/Components/swappable_component.gd" id="2_2pewb"]
+[ext_resource type="Script" uid="uid://dw5bfpk1obh6u" path="res://Scripts/Components/talker_component.gd" id="4_4i38d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5tv0y"]
 render_priority = 0
@@ -38,3 +39,6 @@ mesh = SubResource("BoxMesh_236hc")
 
 [node name="SwappableComponent" type="Node3D" parent="." unique_id=681276239]
 script = ExtResource("2_2pewb")
+
+[node name="TalkerComponent" type="Node3D" parent="." unique_id=1025299982]
+script = ExtResource("4_4i38d")

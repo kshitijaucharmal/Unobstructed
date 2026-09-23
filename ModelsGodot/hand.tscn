@@ -30,3 +30,6 @@ bones/9/rotation = Quaternion(-0.07555769, 0.7159199, 0.127421, 0.6822856)
 material_override = SubResource("ShaderMaterial_gnjwr")
 cast_shadow = 0
 surface_material_override/0 = SubResource("StandardMaterial3D_gnjwr")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1808577429]
+autoplay = &"Tictok"

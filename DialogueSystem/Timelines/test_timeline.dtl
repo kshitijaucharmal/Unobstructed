@@ -1,0 +1,14 @@
+Fred: Yo!
+label go back
+Fred: What's Up?
+[text_input text="Tell Fred Whats up" var="response" allow_empty="true"]
+if {response} == "...":
+	Fred: uh... okay...
+	Fred: Maybe move on to something then...
+	Fred: I know, lets get you some options!
+	- Do some work
+		Fred: Do some work? Damn, you're productive. I'm just gonna sleep
+	- Sit around
+		Fred: Thats what I do all year round.
+elif {response} == "nothing":
+	Fred: Do Something then bro

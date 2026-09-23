@@ -20,6 +20,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if not Globals.mouse_captured:
+		return
+		
 	shot_timer -= delta
 	if Input.is_action_pressed("shoot") and shot_timer < 0:
 		shot_timer = time_between_shots

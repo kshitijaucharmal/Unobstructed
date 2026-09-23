@@ -22,6 +22,8 @@ func _input(event: InputEvent) -> void:
 		camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(verticle_limits.x), deg_to_rad(verticle_limits.y))
 
 func _physics_process(delta: float) -> void:
+	if not Globals.mouse_captured:
+		return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * gravity_multiplier * delta
