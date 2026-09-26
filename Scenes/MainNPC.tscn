@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c68c1d5m7gjbh"]
+
+[ext_resource type="PackedScene" uid="uid://jvyavcm0j3wh" path="res://Models/character.blend" id="1_e13k2"]
+[ext_resource type="Script" uid="uid://d2k0jy5vrrlmr" path="res://Scripts/base_character_movement.gd" id="2_hy83m"]
+
+[node name="MainNPC" unique_id=1728147922 instance=ExtResource("1_e13k2")]
+script = ExtResource("2_hy83m")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1568726539]
+autoplay = &"Idle"

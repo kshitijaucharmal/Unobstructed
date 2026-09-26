@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cq4vv21clcvp3"]
+
+[ext_resource type="Material" uid="uid://cq034b5qnj4qw" path="res://Materials/enemy_mat.tres" id="1_h1ryf"]
+[ext_resource type="Script" uid="uid://nbs72u0jktbf" path="res://Scripts/Components/swappable_component.gd" id="2_1ig1v"]
+[ext_resource type="Script" uid="uid://dw5bfpk1obh6u" path="res://Scripts/Components/talker_component.gd" id="3_6atyd"]
+[ext_resource type="PackedScene" uid="uid://c68c1d5m7gjbh" path="res://Scenes/MainNPC.tscn" id="4_2xkex"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_236hc"]
+material = ExtResource("1_h1ryf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4i38d"]
+size = Vector3(1, 1.9, 1.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4i38d"]
+radius = 0.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4i38d"]
+radius = 0.2
+height = 0.93125
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4i38d"]
+height = 0.4
+radius = 0.6
+
+[node name="NPC" type="StaticBody3D" unique_id=2132596890 groups=["Swappable"]]
+
+[node name="Goggles" type="MeshInstance3D" parent="." unique_id=671221041]
+transform = Transform3D(1, 0, 0, 0, 0.33000004, 0, 0, 0, 1, 0, 3.9, 0.5)
+visible = false
+mesh = SubResource("BoxMesh_236hc")
+
+[node name="SwappableComponent" type="Node3D" parent="." unique_id=681276239]
+script = ExtResource("2_1ig1v")
+
+[node name="TalkerComponent" type="Node3D" parent="." unique_id=1025299982]
+script = ExtResource("3_6atyd")
+
+[node name="character" parent="." unique_id=866360176 instance=ExtResource("4_2xkex")]
+
+[node name="BodyCollider" type="CollisionShape3D" parent="." unique_id=945333950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -0.100000024)
+shape = SubResource("BoxShape3D_4i38d")
+
+[node name="HeadCollider" type="CollisionShape3D" parent="." unique_id=1842604619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8500001, -0.050000034)
+shape = SubResource("SphereShape3D_4i38d")
+
+[node name="ForehandCollider_L" type="CollisionShape3D" parent="." unique_id=1607950558]
+transform = Transform3D(0.96592593, -0.25881907, 0, 0.25881907, 0.96592593, 0, 0, 0, 1, 1.0886767, 1.2422594, -0.35000005)
+shape = SubResource("CapsuleShape3D_4i38d")
+
+[node name="ArmCollider_L" type="CollisionShape3D" parent="." unique_id=323365016]
+transform = Transform3D(0.96592593, -0.25881907, 0, 0.25881907, 0.96592593, 0, 0, 0, 1, 0.8975736, 2.3090558, -0.35000005)
+shape = SubResource("CapsuleShape3D_4i38d")
+
+[node name="ArmCollider_L2" type="CollisionShape3D" parent="." unique_id=1251626216]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, -0.9024264, 2.3090558, -0.35000005)
+shape = SubResource("CapsuleShape3D_4i38d")
+
+[node name="ForehandCollider_R" type="CollisionShape3D" parent="." unique_id=693779543]
+transform = Transform3D(0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0, 1, -1.1113234, 1.2422594, -0.35000005)
+shape = SubResource("CapsuleShape3D_4i38d")
+
+[node name="WheelCollider" type="CollisionShape3D" parent="." unique_id=1230531901]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.6, 0)
+shape = SubResource("CylinderShape3D_4i38d")

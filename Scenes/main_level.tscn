@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://bq0r6gujrvdx3" path="res://Scripts/game_settings.gd" id="1_5erdv"]
 [ext_resource type="Material" uid="uid://e7gh1rnwev5v" path="res://Materials/ground_mat.tres" id="1_q2fht"]
 [ext_resource type="PackedScene" uid="uid://df7ksxrcamixk" path="res://Scenes/player.tscn" id="3_5erdv"]
-[ext_resource type="Material" uid="uid://ugixhveyoh4d" path="res://Materials/Block1.tres" id="4_qbrl8"]
-[ext_resource type="PackedScene" uid="uid://bptopeenlikb" path="res://Scenes/enemy_soldier.tscn" id="7_tqiex"]
+[ext_resource type="PackedScene" uid="uid://cq4vv21clcvp3" path="res://Scenes/npc.tscn" id="7_lwkuy"]
 [ext_resource type="Script" uid="uid://wxdo5dcj4mp" path="res://Scripts/reticle.gd" id="8_tqiex"]
 [ext_resource type="PackedScene" uid="uid://kjbb87t4dsxc" path="res://Scenes/PS1_Post_Processing.tscn" id="9_ha3dl"]
 [ext_resource type="PackedScene" uid="uid://flr4sruugrrm" path="res://ModelsGodot/Car.tscn" id="10_f3gli"]
@@ -76,7 +75,7 @@ render_priority = 0
 shader = SubResource("Shader_cthir")
 shader_parameter/color_texture = SubResource("NoiseTexture2D_cthir")
 shader_parameter/vertex_wobble = 0.499999988824
-shader_parameter/affine_mapping = 0.499999988824
+shader_parameter/affine_mapping = 0.0999999977648
 shader_parameter/z_clip_scale = 0.999999977648
 shader_parameter/alpha = 1.0
 
@@ -88,7 +87,6 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_5erdv")
 
 [sub_resource type="Environment" id="Environment_a2ia3"]
-background_mode = 2
 sky = SubResource("Sky_qbrl8")
 tonemap_mode = 2
 glow_enabled = true
@@ -117,33 +115,29 @@ use_collision = true
 [node name="CSGBox3D" type="CSGBox3D" parent="Level" unique_id=202296739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 12.167701)
 size = Vector3(11, 3, 5.9)
-material = ExtResource("4_qbrl8")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Level" unique_id=2076900298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6201515, 1.6999998, 10.417701)
 size = Vector3(11, 9.2, 8.8)
-material = ExtResource("4_qbrl8")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Level" unique_id=1413003339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1798496, 3.6, -13.0823)
 size = Vector3(11, 9.2, 8.8)
-material = ExtResource("4_qbrl8")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Level" unique_id=2125436452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.92985, 1.45, 2.2177)
 size = Vector3(4.3, 4.9, 8.8)
-material = ExtResource("4_qbrl8")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Level" unique_id=1592616383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.529849, 6.5, 13.9177)
 size = Vector3(4.3, 15, 8.8)
-material = ExtResource("4_qbrl8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=335480150]
 environment = SubResource("Environment_a2ia3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1676174008]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_angular_distance = 9.83
 light_specular = 0.0
 shadow_enabled = true
 
@@ -161,6 +155,20 @@ shape = SubResource("WorldBoundaryShape3D_ikcpc")
 [node name="Player" parent="." unique_id=203929966 instance=ExtResource("3_5erdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7252903e-08, 0)
 speed = 8.0
+
+[node name="ScreenQuad" parent="." unique_id=1567483584 instance=ExtResource("9_ha3dl")]
+
+[node name="BasicCar" parent="." unique_id=1772947355 instance=ExtResource("10_f3gli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1, 0, -12.099999)
+
+[node name="NPC" parent="." unique_id=2132596890 instance=ExtResource("7_lwkuy")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3.7, 0, -5)
+
+[node name="NPC2" parent="." unique_id=1326058690 instance=ExtResource("7_lwkuy")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 17.7, 0, -11.1)
+
+[node name="NPC3" parent="." unique_id=673594438 instance=ExtResource("7_lwkuy")]
+transform = Transform3D(0.49999997, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.49999997, 17.800001, 0, 0.1)
 
 [node name="UserInterface" type="Control" parent="." unique_id=84762922]
 layout_mode = 3
@@ -201,17 +209,3 @@ width = 2.0
 [node name="Left" type="Line2D" parent="UserInterface/Reticle" unique_id=279969986]
 points = PackedVector2Array(-5, 0, -15, 0)
 width = 2.0
-
-[node name="EnemySoldier" parent="." unique_id=2132596890 instance=ExtResource("7_tqiex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4)
-
-[node name="EnemySoldier2" parent="." unique_id=183185681 instance=ExtResource("7_tqiex")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, -5.9, 0, -13.700001)
-
-[node name="EnemySoldier3" parent="." unique_id=1023048398 instance=ExtResource("7_tqiex")]
-transform = Transform3D(-0.25881904, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881904, 12.6, 0, -5.6000004)
-
-[node name="ScreenQuad" parent="." unique_id=1567483584 instance=ExtResource("9_ha3dl")]
-
-[node name="BasicCar" parent="." unique_id=1772947355 instance=ExtResource("10_f3gli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1, 0, -12.099999)
